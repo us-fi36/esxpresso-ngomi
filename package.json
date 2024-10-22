@@ -1,0 +1,36 @@
+{
+  "name": "expresso-ngomi",
+  "version": "1.0.0",
+  "description": "A command-line coffee ordering app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "dev-db": "nodemon test-db.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patchbardi/expresso-ngomi.git"
+  },
+  "keywords": [
+    "coffee",
+    "cli",
+    "orders"
+  ],
+  "author": "Ngomi Patchamen Diane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/us-fi36/esxpresso-ngomi.git"
+  },
+  "homepage": "https://github.com/patchbardi/expresso-ngomi#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "mariadb": "^3.3.2"
+  }
+}
