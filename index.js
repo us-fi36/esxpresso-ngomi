@@ -1,23 +1,33 @@
-
 import express from 'express';
-const app = express();
- 
-// Definieren der ersten Route
-app.get('/', (req, res) => {
-  res.send('Willkommen bei Ihrem ersten Express-Server!');
-});
- 
-// Weitere Route
-app.get('/about', (req, res) => {
-  res.send('Dies ist die About-Seite.');
-});
+import cookieParser from 'cookie-parser';
 
-app.get('/contact', (req, res) => {
-    res.send('Dies ist die Contact-Seite.');
-  });
- 
-  
+import pagesRouter from './routes/pages.js';
+import usersRouter from './routes/users.js';
+// import todosRouter from './routes/todo-api.js';
+
+const app = express();
+
+// EJS als View-Engine einrichten
+app.set('view engine', 'ejs');
+
+// Route für statische Inhalte
+app.use(express.static('public'));
+
+// Middleware, um URL-encoded-Daten zu verarbeiten
+app.use(express.urlencoded({ extended: true }));
+
+// Cookie-Parser-Middleware verwenden
+app.use(cookieParser());
+
+// Routen einbinden
+app.use('/', pagesRouter);
+app.use('/', usersRouter);
+// app.use('/todo-api', todosRouter);
+
 // Server starten
 app.listen(3000, () => {
   console.log('Server läuft auf http://localhost:3000');
 });
+
+
+
