@@ -3,7 +3,7 @@ import cookieParser from 'cookie-parser';
 
 import pagesRouter from './routes/pages.js';
 import usersRouter from './routes/users.js';
-// import todosRouter from './routes/todo-api.js';
+import todosRouter from './routes/todo-api.js';
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use(cookieParser());
 // Routen einbinden
 app.use('/', pagesRouter);
 app.use('/', usersRouter);
-// app.use('/todo-api', todosRouter);
+app.use('/todo-api', todosRouter);
 
 // Server starten
 app.listen(3000, () => {
